@@ -15,23 +15,51 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class NewDaoImpl implements INewsDao {
+public class NewDaoImpl extends GenericDaoImpl<NewsEntity> implements INewsDao {
 
     private final SessionFactory sessionFactory;
 
     public NewDaoImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
         this.sessionFactory = sessionFactory;
     }
+
+//
+//    @Override
+//    public <T> T save(T o) {
+//        return null;
+//    }
+//
+//    @Override
+//    public void delete(Object object) {
+//
+//    }
+//
+//    @Override
+//    public <T> T get(Class<T> type, Long id) {
+//        return null;
+//    }
+//
+//    @Override
+//    public <T> T merge(T o) {
+//        return null;
+//    }
+//
+//    @Override
+//    public <T> List<T> getAll(Class<T> type) {
+//        return null;
+//    }
 
     @Override
     public List<NewsEntity> getList() {
 
-        Session session = sessionFactory.getCurrentSession();
-        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-        CriteriaQuery<NewsEntity> criteriaQuery = criteriaBuilder.createQuery(NewsEntity.class);
-        Root<NewsEntity> root = criteriaQuery.from(NewsEntity.class);
-        criteriaQuery.select(root);
-        Query query = session.createQuery(criteriaQuery);
-        return query.getResultList();
+//        Session session = sessionFactory.getCurrentSession();
+//        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+//        CriteriaQuery<NewsEntity> criteriaQuery = criteriaBuilder.createQuery(NewsEntity.class);
+//        Root<NewsEntity> root = criteriaQuery.from(NewsEntity.class);
+//        criteriaQuery.select(root);
+//        Query query = session.createQuery(criteriaQuery);
+//        return query.getResultList();
+        return getAll(NewsEntity.class);
     }
 }

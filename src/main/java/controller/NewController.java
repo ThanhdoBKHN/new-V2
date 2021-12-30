@@ -26,10 +26,4 @@ public class NewController {
         return "news";
 
     }
-
-//    @GetMapping("/form")
-//    public String getForm(Model model){
-//        model.addAttribute("customer", "thanh");
-//        return "news-form";
-//    }
 }
